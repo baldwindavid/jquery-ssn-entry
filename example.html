@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="jquery-ssn-entry.js"></script>
+
+    <script>
+      $(document).ready(function(){
+        $(".ssn").ssnEntry();
+
+        $("#ssn-entry").on('invalidSSN', function(){
+          $("#messages").text("This field is invalid.");
+        });
+
+        $("#ssn-entry").on('validSSN', function(){
+          $("#messages").text("Looks good.");
+        });
+
+
+      });
+    </script>
+  </head>
+  <body>
+
+    <h3>Entry Input</h3>
+    <input id="ssn-entry" />
+
+    <h4 id="messages"></h4>
+
+    <hr>
+
+    <h3>Submission Value (hidden)</h3>
+    <input class="ssn" value="123456789" data-ssn-entry-input="#ssn-entry" />
+
+  </body>
+</html>
